@@ -142,132 +142,6 @@ With these files and a few button clicks, you'll be able to quickly
 setup gnuschool.
 </pre>
 
-<h3> SETUP SUMMARY IN A GNU/LINUX SYSTEM </h3>
-<pre>
-You need to have MySQL, PHP, and Apache.
-Here are the three files I used:
-mysql-standard-5.0.16-linux-i686-glibc23.tar.gz
-httpd/httpd-2.0.55.tar.gz
-php-5.1.1.tar.gz
-
-Setup MySQL.
-At the GNU/Linux system prompt, enter the following:
-groupadd mysql
-useradd -g mysql mysql
-cd /usr/local
-gunzip < mysql-standard-5.0.16-linux-i686-glibc23 | tar xvf -
-ln -s /usr/local/mysql-standard-5.0.16-linux-i686-glibc23 /usr/local/mysql
-cd /usr/local/mysql
-./scripts/mysql_install_db --user=mysql
-chown -R root .
-chown -R mysql data
-chgrp -R mysql .
-./bin/mysqld_safe --user=mysql &
-./bin/mysql -u root
-
-You are now at the mysql client prompt which looks like this "mysql>".
-We're now going to add a super user called "new_admin".
-Change "new_admin" to a name you prefer.
-The new super user will have access to mysql from 3 places.
-  1) localhost
-  2) 127.0.0.1
-  3) An IP address of your choice (optional)
-Number 3) is the IP address "MYSQL Administrator" will be connecting from.
-At the mysql prompt, enter the following:
-GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'localhost' WITH GRANT OPTION; 
-GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'127.0.0.1' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'192.168.1.4' WITH GRANT OPTION;
-
-View all user and host combinations in the mysql database.
-At the mysql prompt, enter the following:
-SELECT User, Host FROM mysql.user;
-
-Remove no name user.
-At the mysql prompt, enter the following:
-DROP USER ''@'localhost';
-
-Remove all users in this way except "new_admin" users.
-At the mysql prompt, enter the following:
-DROP USER 'root'@'localhost';
-
-The "new_admin" super user should be the only remaining user.
-The next command should display 3 "new_admin" host combinations.
-At the mysql prompt, enter the following:
-SELECT User, Host FROM mysql.user;  
-
-View all existing databases.
-At the mysql prompt, enter the following:
-SHOW DATABASES;
-
-Delete the test database.
-At the mysql prompt, enter the following:
-DROP DATABASE test;
-
-Again view all existing databases.
-"information_squema" and "mysql" should be the only remaining databases.
-At the mysql prompt, enter the following:
-SHOW DATABASES;
-
-Set the password for "new_admin". Change "new_pswd" to something you prefer.
-At the mysql prompt, enter the following:
-SET PASSWORD FOR 'new_admin'@'localhost' = PASSWORD('new_pswd'); 
-SET PASSWORD FOR 'new_admin'@'192.168.1.4' = PASSWORD('new_pswd'); 
-SET PASSWORD FOR 'new_admin'@'127.0.0.1' = PASSWORD('new_pswd'); 
-exit
-
-Setup the Apache 2 server, and PHP 5.
-At the GNU/Linux system prompt, enter the following:
-cd /usr/local
-gzip -d httpd-2.0.55.tar.gz
-tar -xvf httpd-2.0.55.tar
-gunzip php-5.1.1.tar.gz
-tar -xvf php-5.1.1.tar
-cd /usr/local/httpd-2.0.55
-./configure --enable-so
-make
-make install
-cd /usr/local/php-5.1.1
-./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql=/usr/local/mysql --enable-dbase
-make
-make install
-cp /usr/local/php-5.1.1/php.ini-dist /usr/local/lib/php.ini (if file doesn't exist)
-cp /usr/local/php-5.1.1/libs/libphp5.so /usr/local/apache2/modules (if file doesn't exist)
-
-Using an editor, add the following 4 lines to /usr/local/apache2/conf/httpd.conf
-DocumentRoot "/home/gnuschool"
-LoadModule php5_module modules/libphp5.so
-AddType application/x-httpd-php .php
-&lt;Directory "/home/gnuschool"&gt;
-
-At the GNU/Linux system prompt, enter the following:
-cd /usr/local/apache2
-./bin/apachectl start
-
-Create the /home/gnuschool directory.
-At the GNU/Linux system prompt, enter the following:
-cd /home
-mkdir gnuschool
-
-Uncompress gnuschool-0.1 in the directory where it is found.
-At the GNU/Linux system prompt, enter the following:
-gunzip gnuschool-0.1.tar.gz
-tar -xvf gnuschool-0.1.tar
-cp -r gnuschool-0.1/src/* /home/gnuschool
-cd /home/gnuschool
-
-Copy the 3 test files into the /tmp directory.
-At the GNU/Linux system prompt, enter the following:
-cp students.txt /tmp
-cp teacher_students.txt /tmp
-cp principals.txt /tmp
-
-Using a web browser access db_admin/index.html
-The rest of the gnuschool setup is easy.
-Simply click the buttons as instructed in the web pages. 
-If all goes well you should have gnuschool up and running in minutes.
-
-</pre>
-
 <h3>Downloading gnuschool</h3>
 
 <p>
@@ -464,7 +338,7 @@ notice, and the copyright notice, are preserved.
 <p>
 Updated:
 <!-- timestamp start -->
-$Date: 2007/07/23 15:26:09 $
+$Date: 2007/08/23 05:52:04 $
 <!-- timestamp end -->
 </p>
 </div>
