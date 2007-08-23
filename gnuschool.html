@@ -1,14 +1,14 @@
 <html lang="en">
 <head>
-<title>gnuschool 0.1</title>
+<title>gnuschool 0.2</title>
 <meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="gnuschool 0.1">
+<meta name="description" content="gnuschool 0.2">
 <meta name="generator" content="makeinfo 4.8">
 <link title="Top" rel="top" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This manual is for gnuschool
-(version 0.1, 5 May 2007),
+(version 0.2, 16 July 2007),
 
 Copyright (C) 2006 Free Software Foundation, Inc.
 
@@ -38,22 +38,16 @@ Copyright (C) 2006 Free Software Foundation, Inc.
 --></style>
 </head>
 <body>
-<h1 class="settitle">gnuschool 0.1</h1>
+<h1 class="settitle">gnuschool 0.2</h1>
 <div class="contents">
 <h2>Table of Contents</h2>
 <ul>
 <li><a name="toc_Top" href="#Top">gnuschool</a>
 <li><a name="toc_Minimum-requirement" href="#Minimum-requirement">1 Minimum requirement</a>
-<li><a name="toc_System-preparation" href="#System-preparation">2 System preparation</a>
-<ul>
-<li><a href="#System-preparation">2.1 Fedora Core 3 installation</a>
-<li><a href="#System-preparation">2.2 SECTION 1</a>
-<li><a href="#System-preparation">2.3 SECTION 2</a>
-<li><a href="#System-preparation">2.4 MySQL installation</a>
-<li><a href="#System-preparation">2.5 apache installation</a>
-</li></ul>
-<li><a name="toc_Setup-gnuschool" href="#Setup-gnuschool">3 Setup gnuschool</a>
-<li><a name="toc_Invoking-gnuschool" href="#Invoking-gnuschool">4 Invoking gnuschool</a>
+<li><a name="toc_Prepare-mysql" href="#Prepare-mysql">2 Prepare mysql</a>
+<li><a name="toc_PHP-installation" href="#PHP-installation">3 PHP installation</a>
+<li><a name="toc_Setup-gnuschool" href="#Setup-gnuschool">4 Setup gnuschool</a>
+<li><a name="toc_Invoking-gnuschool" href="#Invoking-gnuschool">5 Invoking gnuschool</a>
 <li><a name="toc_Copying-This-Manual" href="#Copying-This-Manual">Appendix A Copying This Manual</a>
 <ul>
 <li><a href="#GNU-Free-Documentation-License">A.1 GNU Free Documentation License</a>
@@ -78,7 +72,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 <h2 class="unnumbered">gnuschool</h2>
 
 <p>This manual is for gnuschool
-(version 0.1, 5 May 2007),
+(version 0.2, 16 July 2007),
 
 <p>Copyright &copy; 2006 Free Software Foundation, Inc.
 
@@ -98,17 +92,18 @@ Software Foundation raise funds for GNU development.&rdquo;
 
 <ul class="menu">
 <li><a accesskey="1" href="#Minimum-requirement">Minimum requirement</a>
-<li><a accesskey="2" href="#System-preparation">System preparation</a>
-<li><a accesskey="3" href="#Setup-gnuschool">Setup gnuschool</a>
-<li><a accesskey="4" href="#Invoking-gnuschool">Invoking gnuschool</a>
-<li><a accesskey="5" href="#Copying-This-Manual">Copying This Manual</a>
-<li><a accesskey="6" href="#Index">Index</a>
+<li><a accesskey="2" href="#Prepare-mysql">Prepare mysql</a>
+<li><a accesskey="3" href="#PHP-installation">PHP installation</a>
+<li><a accesskey="4" href="#Setup-gnuschool">Setup gnuschool</a>
+<li><a accesskey="5" href="#Invoking-gnuschool">Invoking gnuschool</a>
+<li><a accesskey="6" href="#Copying-This-Manual">Copying This Manual</a>
+<li><a accesskey="7" href="#Index">Index</a>
 </ul>
 
 <div class="node">
 <p><hr>
 <a name="Minimum-requirement"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#System-preparation">System preparation</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#Prepare-mysql">Prepare mysql</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Top">Top</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
@@ -117,439 +112,226 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <h2 class="chapter">1 Minimum requirement</h2>
 
 <p><a name="index-minimum-requirement-1"></a><a name="index-minimum-requirement-2"></a>
-The gnuschool application was set up in a GNU/Linux system:
-
-     <ul>
-<li>Intel D865PERL Socket 478 Motherboard
-<li>Intel Celeron D 340 2.93Ghz/256k Cache/533 FSB/Socket 478/Processor
-<li>Ultra Aluminum Heat Sink Pentium 4 CPU cooling fan Skt 478
-<li>Ultra DDR Memory 512 MB PC3200 DDR 400MHz, I used two of these
-<li>Memorex 52X CD drive
-<li>Maxtor Hard Drive 160GB EIDE 7200/8MB/ATA-133
-<li>Ultra 350 Watt V-Series PSU Black ATX Power Supply
-<li>Ultra Wizard Black Mid Tower ATX Case
-<li>Fedora Core 3 CDs
-<li>Connection to the Internet
-</ul>
+A GNU/Linux system with MySQL 5.0, PHP 5.1, and Apache 2.0 installed.
 
 <div class="node">
 <p><hr>
-<a name="System-preparation"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Setup-gnuschool">Setup gnuschool</a>,
+<a name="Prepare-mysql"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#PHP-installation">PHP installation</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Minimum-requirement">Minimum requirement</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
 
-<h2 class="chapter">2 System preparation</h2>
+<h2 class="chapter">2 Prepare mysql</h2>
 
-<p><a name="index-preparation-3"></a><a name="index-preparation-4"></a>
+<p><a name="index-prepare-mysql-3"></a><a name="index-prepare-mysql-4"></a>
+Enter the mysql client. 
+You are now at the mysql client prompt which looks like this "mysql&gt;"
+Add a super user called "new_admin"
+Change "new_admin" to a name you prefer. 
+The new super user will have access to mysql from 3 places:
+1) localhost
+2) 127.0.0.1
+3) An IP address of your choice (optional)
+The last item (number 3) is the IP address "MYSQL Administrator"
+will be connecting from.
 
-<h3 class="section">2.1 Fedora Core 3 installation</h3>
-
-<p>Install Fedora Core 3 as server with nothing checked in the packages section
-
-<p>Configure your system for Internet access
-At the GNU/Linux system prompt, enter the following:
-
-<pre class="example">     netconfig
-</pre>
-<p>Click on the box to turn dhcp ON or OFF. 
-ON for downloading files
-OFF if you want to disconnect your system from the Internet
-
-<p>After making network changes, use the "network" program
-At the GNU/Linux system prompt, enter the following:
-
-<pre class="example">     /etc/rc.d/init.d/network restart
-</pre>
-<p>Run ifconfig to check if eth0 is connected
-At the GNU/Linux system prompt, enter the following:
-
-<pre class="example">     ifconfig -a
-</pre>
-<p>Run uname to check system information
-At the GNU/Linux system prompt, enter the following:
-
-<pre class="example">     uname -n
-     uname --help
-</pre>
-<p>Run hostname to check domain and host name info
-At the GNU/Linux system prompt, enter one of the following:
-
-     <ul>
-<li>hostname -a
-<li>hostname -s
-<li>hostname -d
-<li>hostname -f
-<li>hostname
-<li>hostname &ndash;help
-</ul>
-
-<p>Run hostname to set your hostname and domainname
-At the GNU/Linux system prompt, enter the following:
-
-<pre class="example">     hostname mysystemname.mydomainname.com
-</pre>
-<p>Make sure /etc/hosts has the hostname information
-Run vi to edit the file
-At the GNU/Linux system prompt, enter the following:
-
-<pre class="example">     vi /etc/hosts
-</pre>
-<p>With the file /etc/hosts opened, insert the following lines:
-
-<pre class="example">     127.0.0.1     localhost.localdomain           localhost
-     192.168.1.11  mysystemname.mydomainname.com   mysystemname
-</pre>
-<p>Change the 192.168.1.11, mysystemname, and mydomainname above
-It should have your own IP address, system name, and domain name
-
-<p>Make sure /etc/sysconfig has the hostname information
-Run vi to edit the file
-At the GNU/Linux system prompt, enter the following:
-
-<pre class="example">     vi /etc/sysconfig/network
-</pre>
-<p>With the file /etc/sysconfig opened, insert the following lines:
-
-<pre class="example">     NETWORKING=yes
-     HOSTNAME=mysystemname.mydomainname.com
-</pre>
-<p>To continue we need to use specific RPMs
-Many of the RPMs are in your Fedora CDs
-However, some of the RPMs you need are not in the Fedora CDs
-You'll have to download them from the Internet
-Two sections follow
-If you're getting all your RPMs via the Internet, use "SECTION 1"
-Otherwise use "SECTION 2"
-
-<h3 class="section">2.2 SECTION 1</h3>
-
-<p>At the GNU/Linux system prompt, enter the following:
-
-<pre class="example">     cd /user/local
-     wget <a href="http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/glibc-kernheaders-2.4-9.1.87.i386.rpm">http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/glibc-kernheaders-2.4-9.1.87.i386.rpm</a>
-     rpm -i glibc-kernheaders-2.4-9.1.87.i386.rpm
-     rm -f glibc-kernheaders-2.4-9.1.87.i386.rpm
-     wget <a href="http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/glibc-headers-2.3.3-74.i386.rpm">http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/glibc-headers-2.3.3-74.i386.rpm</a>
-     rpm -i glibc-headers-2.3.3-74.i386.rpm
-     rm -f glibc-headers-2.3.3-74.i386.rpm
-     wget <a href="http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/glibc-devel-2.3.3-74.i386.rpm">http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/glibc-devel-2.3.3-74.i386.rpm</a>
-     rpm -i glibc-devel-2.3.3-74.i386.rpm
-     rm -f glibc-devel-2.3.3-74.i386.rpm
-     wget <a href="http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/cpp-3.4.2-6.fc3.i386.rpm">http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/cpp-3.4.2-6.fc3.i386.rpm</a>
-     rpm -i cpp-3.4.2-6.fc3.i386.rpm
-     rm -f cpp-3.4.2-6.fc3.i386.rpm
-     wget <a href="http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/gcc-3.4.2-6.fc3.i386.rpm">http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/gcc-3.4.2-6.fc3.i386.rpm</a>
-     rpm -i gcc-3.4.2-6.fc3.i386.rpm
-     rm -f gcc-3.4.2-6.fc3.i386.rpm
-     wget <a href="http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/zlib-devel-1.2.1.2-1.i386.rpm">http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/zlib-devel-1.2.1.2-1.i386.rpm</a>
-     rpm -i zlib-devel-1.2.1.2-1.i386.rpm
-     rm -f zlib-devel-1.2.1.2-1.i386.rpm
-     wget <a href="http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/libxml2-devel-2.6.14-2.i386.rpm">http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/libxml2-devel-2.6.14-2.i386.rpm</a>
-     rpm -i libxml2-devel-2.6.14-2.i386.rpm
-     rm -f libxml2-devel-2.6.14-2.i386.rpm
-     wget <a href="http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/flex-2.5.4a-33.i386.rpm">http://download.fedora.redhat.com/pub/fefora/linux/core/3/i386/os/Fedora/RPMS/flex-2.5.4a-33.i386.rpm</a>
-     rpm -i flex-2.5.4a-33.i386.rpm
-     rm -f flex-2.5.4a-33.i386.rpm
-</pre>
-<h3 class="section">2.3 SECTION 2</h3>
-
-<p>At the GNU/Linux system prompt, enter the following:
-<pre class="example">     cd /user/local
-     wget <a href="http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/glibc-kernheaders-2.4-9.1.87.i386.rpm">http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/glibc-kernheaders-2.4-9.1.87.i386.rpm</a>
-     rpm -i glibc-kernheaders-2.4-9.1.87.i386.rpm
-     rm -f glibc-kernheaders-2.4-9.1.87.i386.rpm
-     wget <a href="http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/glibc-headers-2.3.3-74.i386.rpm">http://download.fedora.redhat.com/pub/fedora/linux/core/3/i386/os/Fedora/RPMS/glibc-headers-2.3.3-74.i386.rpm</a>
-     rpm -i glibc-headers-2.3.3-74.i386.rpm
-     rm -f glibc-headers-2.3.3-74.i386.rpm
-     rpm -i /Fedora/RPMS/glibc-devel-2.3.3-74.i386.rpm
-     rm -f glibc-devel-2.3.3-74.i386.rpm
-     rpm -i /Fedora/RPMS/cpp-3.4.2-6.fc3.i386.rpm
-     rm -f cpp-3.4.2-6.fc3.i386.rpm
-     rpm -i /Fedora/RPMS/gcc-3.4.2-6.fc3.i386.rpm
-     rm -f gcc-3.4.2-6.fc3.i386.rpm
-     rpm -i /Fedora/RPMS/zlib-devel-1.2.1.2-1.i386.rpm
-     rm -f zlib-devel-1.2.1.2-1.i386.rpm
-     rpm -i /Fedora/RPMS/libxml2-devel-2.6.14-2.i386.rpm
-     rm -f libxml2-devel-2.6.14-2.i386.rpm
-     rpm -i /Fedora/RPMS/flex-2.5.4a-33.i386.rpm
-     rm -f flex-2.5.4a-33.i386.rpm
-</pre>
-<h3 class="section">2.4 MySQL installation</h3>
-
-<p>At the GNU/Linux system prompt, enter the following:
-<pre class="example">     groupadd mysql
-     useradd -g mysql mysql
-     cd /usr/local
-     wget <a href="http://dev.mysql.com/get/Downloads/MySQL-5.0/mysql-standard-5.0.16-linux-i686-glibc23.tar.gz/from/http://mysql.mirrors.pair.com/">http://dev.mysql.com/get/Downloads/MySQL-5.0/mysql-standard-5.0.16-linux-i686-glibc23.tar.gz/from/http://mysql.mirrors.pair.com/</a>
-     md5sum mysql-standard-5.0.16-linux-i686-glibc23.tar.gz
-</pre>
-<p>The above command makes sure the download was successful
-The result for the md5sum command above should be:
-<pre class="example">     bfec94aa94a02d01e79072168d1af3e6
-</pre>
-<p>At the GNU/Linux system prompt, enter the following:
-<pre class="example">     gunzip &lt; mysql-standard-5.0.16-linux-i686-glibc23 | tar xvf -
-     ln -s /usr/local/mysql-standard-5.0.16-linux-i686-glibc23 <br>/usr/local/mysql
-     cd /usr/local/mysql
-     ./scripts/mysql_install_db --user=mysql
-     chown -R root .
-     chown -R mysql data
-     chgrp -R mysql .
-     ./bin/mysqld_safe --user=mysql &amp;
-     ./bin/mysql -u root
-</pre>
-<blockquote>
-<b>Important:</b> SUPER USER NOTE 1:
-	"new_admin" super user replaces the root super user
-</blockquote>
-
-<p>You are now at the mysql client prompt which looks like this "mysql&gt;"
-We're now going to add a super user called "new_admin"
-Change "new_admin" to a name you prefer
-The new super user will have access to mysql from 3 places
-  1) localhost
-  2) 127.0.0.1
-  3) An IP address of your choice (optional)
-Number 3 is the IP address "MYSQL Administrator" will be connecting from
+<p>Below, change "new_admin" to something you prefer. 
 At the mysql prompt, enter the following:
 <pre class="verbatim">
-GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'localhost' WITH GRANT OPTION; 
+GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'localhost' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'127.0.0.1' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'192.168.1.4' WITH GRANT OPTION;
 </pre>
 
-<p>View all user and host combinations in the mysql database
+<p>Below, change "new_password" to something you prefer. 
+At the mysql prompt, enter the following:
+<pre class="verbatim">
+SET PASSWORD FOR 'new_admin'@'localhost' = PASSWORD('new_password');
+SET PASSWORD FOR 'new_admin'@'192.168.1.4' = PASSWORD('new_password');
+SET PASSWORD FOR 'new_admin'@'127.0.0.1' = PASSWORD('new_password');
+</pre>
+
+<p>View all user and host combinations in the mysql database. 
 At the mysql prompt, enter the following:
 <pre class="verbatim">
 SELECT User, Host FROM mysql.user;
 </pre>
 
-<p>Remove no name user
-At the mysql prompt, enter the following:
+<p>Remove no name user. At the mysql prompt, enter the following:
 <pre class="verbatim">
 DROP USER ''@'localhost';
 </pre>
 
-<p>Remove all users in this way except "new_admin" users
+<p>Remove all users in this way except "new_admin" users. 
 At the mysql prompt, enter the following:
 <pre class="verbatim">
 DROP USER 'root'@'localhost';
 </pre>
 
-<p>The "new_admin" super user should be the only remaining user
-The next command should display 3 "new_admin" host combinations
+<p>The "new_admin" super user should be the only remaining user. 
+The next command should display 3 "new_admin" host combinations. 
 At the mysql prompt, enter the following:
 <pre class="verbatim">
-SELECT User, Host FROM mysql.user;  
+SELECT User, Host FROM mysql.user;
 </pre>
 
-<p>View all existing databases. 
-At the mysql prompt, enter the following:
+<p>View all existing databases.  At the mysql prompt, enter the following:
 <pre class="verbatim">
 SHOW DATABASES;
 </pre>
 
-<p>Delete the test database. 
-At the mysql prompt, enter the following:
+<p>Delete the test database.  At the mysql prompt, enter the following:
 <pre class="verbatim">
 DROP DATABASE test;
 </pre>
 
-<p>Again view all existing databases
-"information_squema" and "mysql" should be the only remaining databases
+<p>Again view all existing databases. 
+"information_squema" and "mysql" should be the only remaining databases. 
 At the mysql prompt, enter the following:
 <pre class="verbatim">
 SHOW DATABASES;
 </pre>
 
-<blockquote>
-<b>Important:</b> SUPER USER NOTE 2:
-	Give "new_admin" super user the same password 3 times
-</blockquote>
-
-<p>Change "new_pswd" to something you prefer
-At the mysql prompt, enter the following:
+<p>We're done. At the mysql prompt, enter the following:
 <pre class="verbatim">
-SET PASSWORD FOR 'new_admin'@'localhost' = PASSWORD('new_pswd'); 
-SET PASSWORD FOR 'new_admin'@'192.168.1.4' = PASSWORD('new_pswd'); 
-SET PASSWORD FOR 'new_admin'@'127.0.0.1' = PASSWORD('new_pswd'); 
 exit
 </pre>
 
-<h3 class="section">2.5 apache installation</h3>
-
-<p>Now we're back at the GNU/Linux system prompt
-At the GNU/Linux system prompt, enter the following:
-<pre class="example">     cd /usr/local
-     wget <a href="http://mirrors.playboy.com/apache/httpd/httpd-2.0.55.tar.gz">http://mirrors.playboy.com/apache/httpd/httpd-2.0.55.tar.gz</a>
-     md5sum httpd-2.0.55.tar.gz  <br>(It should be b45f16a9878e709497820565d42b00b9)
-     gzip -d httpd-2.0.55.tar.gz
-     tar -xvf httpd-2.0.55.tar
-     wget <a href="http://us2.php.net/get/php-5.1.1.tar.gz/from/us3.php.net/mirror">http://us2.php.net/get/php-5.1.1.tar.gz/from/us3.php.net/mirror</a>
-     md5sum php-5.1.1.tar.gz	  <br>(It should be ed3d099828282e66c66cadd8d879d739)
-     gunzip php-5.1.1.tar.gz
-     tar -xvf php-5.1.1.tar
-     cd /usr/local/httpd-2.0.55
-     ./configure --enable-so
-     make
-     make install
-     cd /usr/local/php-5.1.1
-     ./configure --with-apxs2=/usr/local/apache2/bin/apxs <br>--with-mysql=/usr/local/mysql --enable-dbase
-     make
-     make install
-     cp /usr/local/php-5.1.1/php.ini-dist /usr/local/lib/php.ini <br>(if file doesn't exist)
-     cp /usr/local/php-5.1.1/libs/libphp5.so /usr/local/apache2/modules <br>(if file doesn't exist)
-     vi /usr/local/apache2/conf/httpd.conf
-</pre>
-<p>The file /usr/local/apache2/conf/httpd.conf is now opened in the text editor
-The following 4 lines need to be in this file.
-<pre class="example">     DocumentRoot "/home/gnuschool"
-     LoadModule php5_module modules/libphp5.so
-     AddType application/x-httpd-php .php
-     &lt;Directory "/home/gnuschool"&gt;
-</pre>
-<p>At the GNU/Linux system prompt, enter the following:
-<pre class="example">     cd /usr/local/apache2
-     ./bin/apachectl start
-</pre>
 <div class="node">
 <p><hr>
-<a name="Setup-gnuschool"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Invoking-gnuschool">Invoking gnuschool</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#System-preparation">System preparation</a>,
+<a name="PHP-installation"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Setup-gnuschool">Setup gnuschool</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Prepare-mysql">Prepare mysql</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
 
-<h2 class="chapter">3 Setup gnuschool</h2>
+<h2 class="chapter">3 PHP installation</h2>
 
-<p><a name="index-setup-5"></a><a name="index-setup-6"></a>
-Copy gnuschool.tar into your /home directory
-At the GNU/Linux system prompt, enter the following:
-<pre class="example">     cd /home
-     tar -xvf gnuschool.tar
-     cd gnuschool
-</pre>
-<p>Copy the 3 files into the /tmp directory
-At the GNU/Linux system prompt, enter the following:
-<pre class="example">     cp students.txt /tmp
-     cp teacher_students.txt /tmp
-     cp principals.txt /tmp
-</pre>
-<p>In this example the IP address 192.168.1.11 is used
-It's where the web application gnuschool is located
-Substitute it with your system IP address
+<p><a name="index-php-installation-5"></a><a name="index-php-installation-6"></a>
+Enable dbase when installing PHP.
 
-<p>Using a web browser access <a href="http://192.168.1.11/db_admin/index.html">http://192.168.1.11/db_admin/index.html</a>
-From here on "http://192.168.1.11" will be omitted when referring to web pages
-However, it's understood they preceed the web pages
-Click on the first button "Setup the school database system"
+<div class="node">
+<p><hr>
+<a name="Setup-gnuschool"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Invoking-gnuschool">Invoking gnuschool</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#PHP-installation">PHP installation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">4 Setup gnuschool</h2>
+
+<p><a name="index-setup-gnuschool-7"></a><a name="index-setup-gnuschool-8"></a>
+At the GNU/Linux system prompt, enter the following:
+<pre class="example">          gunzip gnuschool-latest_version.tar.gz
+          tar -xvf gnuschool-latest_version.tar
+          cd gnuschool-latest_version
+</pre>
+<p>Find the full pathname for "Document Root" in the httpd.conf file. 
+Copy all files and directories into Apache's "Document Root" directory. 
+At the GNU/Linux system prompt, enter the following:
+<pre class="example">          cp -r src/* /the/full/document_root/path
+          cd /the/full/document_root/path
+</pre>
+<p>Copy the 3 files into the /tmp directory. 
+At the GNU/Linux system prompt, enter the following:
+<pre class="example">          cp students.txt /tmp
+          cp teacher_students.txt /tmp
+          cp principals.txt /tmp
+</pre>
+<p>Using a web browser access the Apache server. 
+Open web page /db_admin/index.html, and click on
+the first button "Setup the school database system"
 
 <p>You are now in /db_admin/school_setup.php
 Click on the first button "Create the user database"
 
 <p>You are now in /db_admin/create_user.php
-In the first 2 fields, type your new_admin name and
-your new_password used in "Note 1" and "Note 2"
-In the lower 3 fields, you will create an administrator with
-exclusive web administration privileges
-
-<blockquote>
-<b>Important:</b> NOTE 3:
-   Use this web administrator for all gnuschool administration
-</blockquote>
+In the first 2 fields, type the new_admin name and new_password from the mysql setup. 
+In the lower 3 fields, you will create an administrator with exclusive web administration privileges. 
+Use this administrator for all gnuschool web administration.
 
 <p>Click on "Create User Database"
-You are still in /db_admin/create_user.php
-The text towards the bottom will inform you if it was successful
-Now click on the link to the main school setup page
+The text towards the bottom will inform you if it was successful. 
+Now click on the link to the main school setup page. 
+You are now in /db_admin/setup_school.php
+Click on "Create the school database". 
+Type in your web administrator user name and password.
 
-<p>You are now in /db_admin/setup_school.php
-click on "Create the school database" type in your user name and
-password from NOTE 3
-
-<p>You are in /db_admin/create_main.php click on "Create School Database"
-You are in /db_admin/create_main.php text towards the bottom will
-inform you if it was successful
-Click on the link to the main school setup page
+<p>You are in /db_admin/create_main.php
+Click on "Create School Database"
+Text towards the bottom will inform you if it was successful. 
+Click on the link to the main school setup page. 
 You are in /db_admin/setup_school.php
 Click on "Edit default settings"
 
 <p>You are in /db_admin/defaults.php
-The fields you see apply to files used to import data into the
-database or export data from the database
-The file students.txt is in the gnuschool directory
-This is a formatted ASCII text file I use to test the database
-First I use students.txt to import data into the database
-The first line has the column names
-Each line after that has the student name and homeroom name
+The fields you see apply to files used to import data into the database or export data from the database
+The file students.txt is in the gnuschool directory. 
+This is a formatted ASCII text file used to test the database. 
+First use students.txt to import data into the database. 
+The first line has the column names. 
+Each line after that has the student name and homeroom name. 
 You have already copied students.txt into /tmp
-gnuschool will use the files in /tmp to import and export data
-You may use an input file with a different name
+gnuschool will use the files in /tmp to import and export data. 
+You may use an input file with a different name. 
 If so, you must update the file name field in /db_admin/defaults.php
-Click on the link to the main school setup page
+Click on the link to the main school setup page.
 
 <p>You are in /db_admin/setup_school.php
 At number 3, click on "Use a default text file"
 You are in /db_admin/im_txt_2_main_stu.php click on "Proceed"
-You are still in /db_admin/im_txt_2_main_stu.php
-Text towards the bottom will inform you if it was successful
-Click on the link to the main school setup page
+Text towards the bottom will inform you if it was successful. 
+Click on the link to the main school setup page.
 
 <p>You are in /db_admin/setup_school.php
 At nuber 4, click on "Use a text file"
 You are in /db_admin/im_txt_2_teac_stu.php
-The file teacher_students.txt is in the gnuschool directory
-It is a formatted ASCII text file used to test the database
-I use teacher_students.txt to import data into the database
+The file teacher_students.txt is in the gnuschool directory. 
+It is a formatted ASCII text file used to test the database. 
+Use teacher_students.txt to import data into the database. 
 It has teacher and student sections
 The file arrangement is now explained in /db_admin/im_txt_2_teac_stu.php
 You have already copied teacher_students.txt into /tmp
-"Display all user name and password data" should be checked
-Leave the email checkboxes unchecked
-Presently this help file does not cover the email options
-click on "Proceed"
-You are in /db_admin/im_txt_2_teac_stu.php
-Text towards the bottom will inform you if it was successful
-Leave this window open
-You will need the teacher user names and passwords later
-Click on the link to the main school setup page
+"Display all user name and password data" should be checked. 
+Leave the email checkboxes unchecked. 
+Presently this help file does not cover the email options. 
+Click on "Proceed" You are in /db_admin/im_txt_2_teac_stu.php
+Text towards the bottom will inform you if it was successful. 
+Leave this window open. You will need the teacher user names and passwords later. 
+Click on the link to the main school setup page.
 
 <p>You are in /db_admin/setup_school.php
 At number 5, click on "Use the text file"
 You are in /db_admin/im_txt_2_teac_pri.php
-The file principals.txt is in the gnuschool directory
-It is a formatted ASCII text file used to test the database
-I use principals.txt to import data into the database
+The file principals.txt is in the gnuschool directory. 
+It is a formatted ASCII text file used to test the database. 
+Use principals.txt to import data into the database. 
 The file arrangement is now explained in /db_admin/im_txt_2_teac_pri.php
 You have already copied principals.txt into /tmp
-"Display all user name and password data" should be checked
-Leave the email checkboxes unchecked
-Presently this help file does not cover the email options
-click on "Proceed"
+"Display all user name and password data" should be checked. 
+Leave the email checkboxes unchecked. 
+Presently this help file does not cover the email options click on "Proceed"
 You are in /db_admin/im_txt_2_teac_pri.php
-Text towards the bottom will inform you if it was successful
-Leave this window open
-You will need the principal user names and passwords later
-You can always get them again via /db_admin/new_password.php
+Text towards the bottom will inform you if it was successful. 
+Leave this window open. You will need the principal user names and passwords later. 
+If closed, you can always get them again via /db_admin/new_password.php
 It allows an administrator to generate a new teacher user name and/or password
 
 <p>You can always get a new principal or teacher user name and password
-The page /db_admin/new_password.php allows you to do just that
-It lets an administrator generate a new user name and/or password
+The page /db_admin/new_password.php allows you to do just that. 
+It lets an administrator generate a new user name and/or password.
 
-<p>To access a teacher's database open a new browser window
-Open /teachers/attendance.php
-You will need to type the teacher's user name and password
-As a teacher you're able to use the web pages available via the menu
+<p>To access a teacher's database, open /teachers/attendance.php in a new browser window. 
+You will need to type the teacher's user name and password. 
+As a teacher you're able to use the web pages available via the menu.
 
-<p>To access a principal's search open a new browser window
-Open /principals/absent_search.php
-You will need to type the principal's user name and password
-As a principal you're able to use the web pages available via the menu
+<p>To login a principal, open /principals/absent_search.php in a new browser window. 
+You will need to type the principal's user name and password. 
+As a principal you're able to use the web pages available via the menu.
 
 <p>You have now completed the gnuschool setup
 
@@ -562,9 +344,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
 
-<h2 class="chapter">4 Invoking gnuschool</h2>
+<h2 class="chapter">5 Invoking gnuschool</h2>
 
-<p><a name="index-gnuschool-7"></a><a name="index-invoking-_0040command_007bgnuschool_007d-8"></a>
+<p><a name="index-gnuschool-9"></a><a name="index-invoking-_0040command_007bgnuschool_007d-10"></a>
 This is a sample manual.  There is no gnuschool program to
 invoke, but if there was, you could see its basic usage
 and command line options here.
@@ -593,7 +375,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Copying-This-Manual">Copying This Manu
 
 <h3 class="appendixsec">A.1 GNU Free Documentation License</h3>
 
-<p><a name="index-FDL_002c-GNU-Free-Documentation-License-9"></a><div align="center">Version 1.2, November 2002</div>
+<p><a name="index-FDL_002c-GNU-Free-Documentation-License-11"></a><div align="center">Version 1.2, November 2002</div>
 
 <pre class="display">     Copyright &copy; 2000,2001,2002 Free Software Foundation, Inc.
      51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA
@@ -1013,11 +795,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <h2 class="unnumbered">Index</h2>
 
 <ul class="index-cp" compact>
-<li><a href="#index-FDL_002c-GNU-Free-Documentation-License-9">FDL, GNU Free Documentation License</a>: <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></li>
-<li><a href="#index-gnuschool-7"><code>gnuschool</code></a>: <a href="#Invoking-gnuschool">Invoking gnuschool</a></li>
-<li><a href="#index-invoking-_0040command_007bgnuschool_007d-8">invoking <samp><span class="command">gnuschool</span></samp></a>: <a href="#Invoking-gnuschool">Invoking gnuschool</a></li>
+<li><a href="#index-FDL_002c-GNU-Free-Documentation-License-11">FDL, GNU Free Documentation License</a>: <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></li>
+<li><a href="#index-gnuschool-9"><code>gnuschool</code></a>: <a href="#Invoking-gnuschool">Invoking gnuschool</a></li>
+<li><a href="#index-invoking-_0040command_007bgnuschool_007d-10">invoking <samp><span class="command">gnuschool</span></samp></a>: <a href="#Invoking-gnuschool">Invoking gnuschool</a></li>
 <li><a href="#index-minimum-requirement-1"><code>minimum requirement</code></a>: <a href="#Minimum-requirement">Minimum requirement</a></li>
-<li><a href="#index-preparation-3"><code>preparation</code></a>: <a href="#System-preparation">System preparation</a></li>
-<li><a href="#index-setup-5"><code>setup</code></a>: <a href="#Setup-gnuschool">Setup gnuschool</a></li>
+<li><a href="#index-php-installation-5"><code>php installation</code></a>: <a href="#PHP-installation">PHP installation</a></li>
+<li><a href="#index-prepare-mysql-3"><code>prepare mysql</code></a>: <a href="#Prepare-mysql">Prepare mysql</a></li>
+<li><a href="#index-setup-gnuschool-7"><code>setup gnuschool</code></a>: <a href="#Setup-gnuschool">Setup gnuschool</a></li>
 </ul></body></html>
 
