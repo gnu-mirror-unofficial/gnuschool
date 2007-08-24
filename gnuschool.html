@@ -126,10 +126,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <h2 class="chapter">2 Prepare mysql</h2>
 
 <p><a name="index-prepare-mysql-3"></a><a name="index-prepare-mysql-4"></a>
-Enter the mysql client. 
-You are now at the mysql client prompt which looks like this "mysql&gt;"
+<pre class="verbatim">
+Enter the mysql client.
+You are now at the mysql client prompt which looks like this "mysql>"
 Add a super user called "new_admin"
-Change "new_admin" to a name you prefer. 
+Change "new_admin" to a name you prefer.
 The new super user will have access to mysql from 3 places:
 1) localhost
 2) 127.0.0.1
@@ -137,65 +138,46 @@ The new super user will have access to mysql from 3 places:
 The last item (number 3) is the IP address "MYSQL Administrator"
 will be connecting from.
 
-<p>Below, change "new_admin" to something you prefer. 
+Below, change "new_admin" to something you prefer.
 At the mysql prompt, enter the following:
-<pre class="verbatim">
 GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'localhost' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'127.0.0.1' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'192.168.1.4' WITH GRANT OPTION;
-</pre>
 
-<p>Below, change "new_password" to something you prefer. 
+Below, change "new_password" to something you prefer.
 At the mysql prompt, enter the following:
-<pre class="verbatim">
 SET PASSWORD FOR 'new_admin'@'localhost' = PASSWORD('new_password');
 SET PASSWORD FOR 'new_admin'@'192.168.1.4' = PASSWORD('new_password');
 SET PASSWORD FOR 'new_admin'@'127.0.0.1' = PASSWORD('new_password');
-</pre>
 
-<p>View all user and host combinations in the mysql database. 
+View all user and host combinations in the mysql database.
 At the mysql prompt, enter the following:
-<pre class="verbatim">
 SELECT User, Host FROM mysql.user;
-</pre>
 
-<p>Remove no name user. At the mysql prompt, enter the following:
-<pre class="verbatim">
+Remove no name user. At the mysql prompt, enter the following:
 DROP USER ''@'localhost';
-</pre>
 
-<p>Remove all users in this way except "new_admin" users. 
+Remove all users in this way except "new_admin" users.
 At the mysql prompt, enter the following:
-<pre class="verbatim">
 DROP USER 'root'@'localhost';
-</pre>
 
-<p>The "new_admin" super user should be the only remaining user. 
-The next command should display 3 "new_admin" host combinations. 
+The "new_admin" super user should be the only remaining user.
+The next command should display 3 "new_admin" host combinations.
 At the mysql prompt, enter the following:
-<pre class="verbatim">
 SELECT User, Host FROM mysql.user;
-</pre>
 
-<p>View all existing databases.  At the mysql prompt, enter the following:
-<pre class="verbatim">
+View all existing databases.  At the mysql prompt, enter the following:
 SHOW DATABASES;
-</pre>
 
-<p>Delete the test database.  At the mysql prompt, enter the following:
-<pre class="verbatim">
+Delete the test database.  At the mysql prompt, enter the following:
 DROP DATABASE test;
-</pre>
 
-<p>Again view all existing databases. 
-"information_squema" and "mysql" should be the only remaining databases. 
+Again view all existing databases.
+"information_squema" and "mysql" should be the only remaining databases.
 At the mysql prompt, enter the following:
-<pre class="verbatim">
 SHOW DATABASES;
-</pre>
 
-<p>We're done. At the mysql prompt, enter the following:
-<pre class="verbatim">
+We're done. At the mysql prompt, enter the following:
 exit
 </pre>
 
