@@ -47,7 +47,6 @@ Copyright (C) 2006 Free Software Foundation, Inc.
 <li><a name="toc_Prepare-mysql" href="#Prepare-mysql">2 Prepare mysql</a>
 <li><a name="toc_PHP-installation" href="#PHP-installation">3 PHP installation</a>
 <li><a name="toc_Setup-gnuschool" href="#Setup-gnuschool">4 Setup gnuschool</a>
-<li><a name="toc_Invoking-gnuschool" href="#Invoking-gnuschool">5 Invoking gnuschool</a>
 <li><a name="toc_Copying-This-Manual" href="#Copying-This-Manual">Appendix A Copying This Manual</a>
 <ul>
 <li><a href="#GNU-Free-Documentation-License">A.1 GNU Free Documentation License</a>
@@ -95,9 +94,8 @@ Software Foundation raise funds for GNU development.&rdquo;
 <li><a accesskey="2" href="#Prepare-mysql">Prepare mysql</a>
 <li><a accesskey="3" href="#PHP-installation">PHP installation</a>
 <li><a accesskey="4" href="#Setup-gnuschool">Setup gnuschool</a>
-<li><a accesskey="5" href="#Invoking-gnuschool">Invoking gnuschool</a>
-<li><a accesskey="6" href="#Copying-This-Manual">Copying This Manual</a>
-<li><a accesskey="7" href="#Index">Index</a>
+<li><a accesskey="5" href="#Copying-This-Manual">Copying This Manual</a>
+<li><a accesskey="6" href="#Index">Index</a>
 </ul>
 
 <div class="node">
@@ -126,61 +124,69 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <h2 class="chapter">2 Prepare mysql</h2>
 
 <p><a name="index-prepare-mysql-3"></a><a name="index-prepare-mysql-4"></a>
-<pre class="verbatim">
-Enter the mysql client.
-You are now at the mysql client prompt which looks like this "mysql>"
-Add a super user called "new_admin"
-Change "new_admin" to a name you prefer.
-The new super user will have access to mysql from 3 places:
-1) localhost
-2) 127.0.0.1
-3) An IP address of your choice (optional)
+Enter the mysql client as user root.<br>
+You are now at the mysql client prompt which looks like this "mysql&gt;"<br>
+Add a super user called "new_admin"<br>
+Change "new_admin" to a name you prefer.<br>
+The new super user will have access to mysql from 3 places:<br>
+1) localhost<br>
+2) 127.0.0.1<br>
+3) An IP address of your choice (optional)<br>
 The last item (number 3) is the IP address "MYSQL Administrator"
-will be connecting from.
-
-Below, change "new_admin" to something you prefer.
+will be connecting from.<br>
+<br>
+Below, change "new_admin" to something you prefer.<br>
 At the mysql prompt, enter the following:
-GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'localhost' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'127.0.0.1' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON *.* TO 'new_admin'@'192.168.1.4' WITH GRANT OPTION;
-
-Below, change "new_password" to something you prefer.
-At the mysql prompt, enter the following:
-SET PASSWORD FOR 'new_admin'@'localhost' = PASSWORD('new_password');
-SET PASSWORD FOR 'new_admin'@'192.168.1.4' = PASSWORD('new_password');
-SET PASSWORD FOR 'new_admin'@'127.0.0.1' = PASSWORD('new_password');
-
-View all user and host combinations in the mysql database.
-At the mysql prompt, enter the following:
-SELECT User, Host FROM mysql.user;
-
-Remove no name user. At the mysql prompt, enter the following:
-DROP USER ''@'localhost';
-
-Remove all users in this way except "new_admin" users.
-At the mysql prompt, enter the following:
-DROP USER 'root'@'localhost';
-
-The "new_admin" super user should be the only remaining user.
-The next command should display 3 "new_admin" host combinations.
-At the mysql prompt, enter the following:
-SELECT User, Host FROM mysql.user;
-
-View all existing databases.  At the mysql prompt, enter the following:
-SHOW DATABASES;
-
-Delete the test database.  At the mysql prompt, enter the following:
-DROP DATABASE test;
-
-Again view all existing databases.
-"information_squema" and "mysql" should be the only remaining databases.
-At the mysql prompt, enter the following:
-SHOW DATABASES;
-
-We're done. At the mysql prompt, enter the following:
-exit
+<pre class="example">     GRANT ALL PRIVILEGES ON *.* TO 'new_admin'&acute;localhost' WITH GRANT OPTION;
+     GRANT ALL PRIVILEGES ON *.* TO 'new_admin'&acute;127.0.0.1' WITH GRANT OPTION;
+     GRANT ALL PRIVILEGES ON *.* TO 'new_admin'&acute;192.168.1.4' WITH GRANT OPTION;
 </pre>
-
+<p><br>
+Below, change "new_password" to something you prefer.<br>
+At the mysql prompt, enter the following:
+<pre class="example">     SET PASSWORD FOR 'new_admin'&acute;localhost' = PASSWORD('new_password');
+     SET PASSWORD FOR 'new_admin'&acute;192.168.1.4' = PASSWORD('new_password');
+     SET PASSWORD FOR 'new_admin'&acute;127.0.0.1' = PASSWORD('new_password');
+</pre>
+<p><br>
+View all user and host combinations in the mysql database.<br>
+At the mysql prompt, enter the following:
+<pre class="example">     SELECT User, Host FROM mysql.user;
+</pre>
+<p><br>
+Remove no name user. At the mysql prompt, enter the following:
+<pre class="example">     DROP USER ''&acute;localhost';
+</pre>
+<p><br>
+Remove all users in this way except "new_admin" users.<br>
+At the mysql prompt, enter the following:
+<pre class="example">     DROP USER 'root'&acute;localhost';
+</pre>
+<p><br>
+The "new_admin" super user should be the only remaining user.<br>
+The next command should display 3 "new_admin" host combinations.<br>
+At the mysql prompt, enter the following:
+<pre class="example">     SELECT User, Host FROM mysql.user;
+</pre>
+<p><br>
+View all existing databases.  At the mysql prompt, enter the following:
+<pre class="example">     SHOW DATABASES;
+</pre>
+<p><br>
+Delete the test database.  At the mysql prompt, enter the following:
+<pre class="example">     DROP DATABASE test;
+</pre>
+<p><br>
+Again view all existing databases.<br>
+"information_squema" and "mysql" should be the only remaining
+databases.<br>
+At the mysql prompt, enter the following:
+<pre class="example">     SHOW DATABASES;
+</pre>
+<p><br>
+We're done with mysql. At the mysql prompt, enter the following:
+<pre class="example">     exit
+</pre>
 <div class="node">
 <p><hr>
 <a name="PHP-installation"></a>
@@ -198,7 +204,7 @@ Enable dbase when installing PHP.
 <div class="node">
 <p><hr>
 <a name="Setup-gnuschool"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Invoking-gnuschool">Invoking gnuschool</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#Copying-This-Manual">Copying This Manual</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#PHP-installation">PHP installation</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
@@ -208,136 +214,131 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <p><a name="index-setup-gnuschool-7"></a><a name="index-setup-gnuschool-8"></a>
 At the GNU/Linux system prompt, enter the following:
-<pre class="example">          gunzip gnuschool-latest_version.tar.gz
-          tar -xvf gnuschool-latest_version.tar
-          cd gnuschool-latest_version
+<pre class="example">     gunzip gnuschool-latest_version.tar.gz
+     tar -xvf gnuschool-latest_version.tar
+     cd gnuschool-latest_version
 </pre>
-<p>Find the full pathname for "Document Root" in the httpd.conf file. 
-Copy all files and directories into Apache's "Document Root" directory. 
+<p><br>
+Find the full pathname for "Document Root" in the httpd.conf file.<br>
+Copy all files and directories into Apache's "Document Root"
+directory.<br>
 At the GNU/Linux system prompt, enter the following:
-<pre class="example">          cp -r src/* /the/full/document_root/path
-          cd /the/full/document_root/path
+<pre class="example">     cp -r src/* /the/full/document_root/path
+     cd /the/full/document_root/path
 </pre>
-<p>Copy the 3 files into the /tmp directory. 
+<p><br>
+Copy the 3 files into the /tmp directory.<br>
 At the GNU/Linux system prompt, enter the following:
-<pre class="example">          cp students.txt /tmp
-          cp teacher_students.txt /tmp
-          cp principals.txt /tmp
+<pre class="example">     cp students.txt /tmp
+     cp teacher_students.txt /tmp
+     cp principals.txt /tmp
 </pre>
-<p>Using a web browser access the Apache server. 
+<p><br>
+Using a web browser access the Apache server.<br>
 Open web page /db_admin/index.html, and click on
-the first button "Setup the school database system"
-
-<p>You are now in /db_admin/school_setup.php
-Click on the first button "Create the user database"
-
-<p>You are now in /db_admin/create_user.php
-In the first 2 fields, type the new_admin name and new_password from the mysql setup. 
-In the lower 3 fields, you will create an administrator with exclusive web administration privileges. 
-Use this administrator for all gnuschool web administration.
-
-<p>Click on "Create User Database"
-The text towards the bottom will inform you if it was successful. 
-Now click on the link to the main school setup page. 
-You are now in /db_admin/setup_school.php
-Click on "Create the school database". 
-Type in your web administrator user name and password.
-
-<p>You are in /db_admin/create_main.php
-Click on "Create School Database"
-Text towards the bottom will inform you if it was successful. 
-Click on the link to the main school setup page. 
-You are in /db_admin/setup_school.php
-Click on "Edit default settings"
-
-<p>You are in /db_admin/defaults.php
-The fields you see apply to files used to import data into the database or export data from the database
-The file students.txt is in the gnuschool directory. 
-This is a formatted ASCII text file used to test the database. 
-First use students.txt to import data into the database. 
-The first line has the column names. 
-Each line after that has the student name and homeroom name. 
+the first button "Setup the school database system"<br>
+<br>
+You are now in /db_admin/school_setup.php<br>
+Click on the first button "Create the user database"<br>
+<br>
+You are now in /db_admin/create_user.php<br>
+In the first 2 fields, type the new_admin name and new_password from the
+mysql setup.<br>
+In the lower 3 fields, you will create an administrator with exclusive
+web administration privileges.<br>
+Use this administrator for all gnuschool web administration.<br>
+<br>
+Click on "Create User Database"<br>
+The text towards the bottom will inform you if it was successful.<br>
+Now click on the link to the main school setup page.<br>
+You are now in /db_admin/setup_school.php<br>
+Click on "Create the school database".<br>
+Type in your web administrator user name and password.<br>
+<br>
+You are in /db_admin/create_main.php<br>
+Click on "Create School Database"<br>
+Text towards the bottom will inform you if it was successful.<br>
+Click on the link to the main school setup page.<br>
+You are in /db_admin/setup_school.php<br>
+Click on "Edit default settings"<br>
+<br>
+You are in /db_admin/defaults.php<br>
+The fields you see apply to files used to import data into the database
+or export data from the database<br>
+The file students.txt is in the gnuschool directory.<br>
+This is a formatted ASCII text file used to test the database.<br>
+First use students.txt to import data into the database.<br>
+The first line has the column names.<br>
+Each line after that has the student name and homeroom name.<br>
 You have already copied students.txt into /tmp
-gnuschool will use the files in /tmp to import and export data. 
-You may use an input file with a different name. 
-If so, you must update the file name field in /db_admin/defaults.php
-Click on the link to the main school setup page.
-
-<p>You are in /db_admin/setup_school.php
-At number 3, click on "Use a default text file"
-You are in /db_admin/im_txt_2_main_stu.php click on "Proceed"
-Text towards the bottom will inform you if it was successful. 
-Click on the link to the main school setup page.
-
-<p>You are in /db_admin/setup_school.php
-At nuber 4, click on "Use a text file"
-You are in /db_admin/im_txt_2_teac_stu.php
-The file teacher_students.txt is in the gnuschool directory. 
-It is a formatted ASCII text file used to test the database. 
-Use teacher_students.txt to import data into the database. 
-It has teacher and student sections
-The file arrangement is now explained in /db_admin/im_txt_2_teac_stu.php
-You have already copied teacher_students.txt into /tmp
-"Display all user name and password data" should be checked. 
-Leave the email checkboxes unchecked. 
-Presently this help file does not cover the email options. 
-Click on "Proceed" You are in /db_admin/im_txt_2_teac_stu.php
-Text towards the bottom will inform you if it was successful. 
-Leave this window open. You will need the teacher user names and passwords later. 
-Click on the link to the main school setup page.
-
-<p>You are in /db_admin/setup_school.php
-At number 5, click on "Use the text file"
-You are in /db_admin/im_txt_2_teac_pri.php
-The file principals.txt is in the gnuschool directory. 
-It is a formatted ASCII text file used to test the database. 
-Use principals.txt to import data into the database. 
-The file arrangement is now explained in /db_admin/im_txt_2_teac_pri.php
-You have already copied principals.txt into /tmp
-"Display all user name and password data" should be checked. 
-Leave the email checkboxes unchecked. 
-Presently this help file does not cover the email options click on "Proceed"
-You are in /db_admin/im_txt_2_teac_pri.php
-Text towards the bottom will inform you if it was successful. 
-Leave this window open. You will need the principal user names and passwords later. 
-If closed, you can always get them again via /db_admin/new_password.php
-It allows an administrator to generate a new teacher user name and/or password
-
-<p>You can always get a new principal or teacher user name and password
-The page /db_admin/new_password.php allows you to do just that. 
-It lets an administrator generate a new user name and/or password.
-
-<p>To access a teacher's database, open /teachers/attendance.php in a new browser window. 
-You will need to type the teacher's user name and password. 
-As a teacher you're able to use the web pages available via the menu.
-
-<p>To login a principal, open /principals/absent_search.php in a new browser window. 
-You will need to type the principal's user name and password. 
-As a principal you're able to use the web pages available via the menu.
-
-<p>You have now completed the gnuschool setup
-
-<div class="node">
-<p><hr>
-<a name="Invoking-gnuschool"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Copying-This-Manual">Copying This Manual</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Setup-gnuschool">Setup gnuschool</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
-
-<h2 class="chapter">5 Invoking gnuschool</h2>
-
-<p><a name="index-gnuschool-9"></a><a name="index-invoking-_0040command_007bgnuschool_007d-10"></a>
-This is a sample manual.  There is no gnuschool program to
-invoke, but if there was, you could see its basic usage
-and command line options here.
+gnuschool will use the files in /tmp to import and export data.<br>
+You may use an input file with a different name.<br>
+If so, you must update the file name field in /db_admin/defaults.php<br>
+Click on the link to the main school setup page.<br>
+<br>
+You are in /db_admin/setup_school.php<br>
+At number 3, click on "Use a default text file"<br>
+You are in /db_admin/im_txt_2_main_stu.php click on "Proceed"<br>
+Text towards the bottom will inform you if it was successful.<br>
+Click on the link to the main school setup page.<br>
+<br>
+You are in /db_admin/setup_school.php<br>
+At nuber 4, click on "Use a text file"<br>
+You are in /db_admin/im_txt_2_teac_stu.php<br>
+The file teacher_students.txt is in the gnuschool directory.<br>
+It is a formatted ASCII text file used to test the database.<br>
+Use teacher_students.txt to import data into the database.<br>
+It has teacher and student sections.<br>
+The file arrangement is now explained in
+/db_admin/im_txt_2_teac_stu.php<br>
+You have already copied teacher_students.txt into /tmp<br>
+"Display all user name and password data" should be checked.<br>
+Leave the email checkboxes unchecked.<br>
+Presently this help file does not cover the email options.<br>
+Click on "Proceed" You are in /db_admin/im_txt_2_teac_stu.php<br>
+Text towards the bottom will inform you if it was successful.<br>
+Leave this window open. You will need the teacher
+user names and passwords later.<br>
+Click on the link to the main school setup page.<br>
+<br>
+You are in /db_admin/setup_school.php<br>
+At number 5, click on "Use the text file"<br>
+You are in /db_admin/im_txt_2_teac_pri.php<br>
+The file principals.txt is in the gnuschool directory.<br>
+It is a formatted ASCII text file used to test the database.<br>
+Use principals.txt to import data into the database.<br>
+The file arrangement is now explained in /db_admin/im_txt_2_teac_pri.php<br>
+You have already copied principals.txt into /tmp<br>
+"Display all user name and password data" should be checked.<br>
+Leave the email checkboxes unchecked.<br>
+Presently this help file does not cover the email options click on "Proceed"<br>
+You are in /db_admin/im_txt_2_teac_pri.php<br>
+Text towards the bottom will inform you if it was successful.<br>
+Leave this window open. You will need the principal user names and passwords later.<br>
+If closed, you can always get them again via /db_admin/new_password.php<br>
+It allows an administrator to generate a new teacher user name and/or password<br>
+<br>
+You can always get a new principal or teacher user name and password.<br>
+The page /db_admin/new_password.php allows you to do just that.<br>
+It lets an administrator generate a new user name and/or password.<br>
+<br>
+To access a teacher's database, open /teachers/attendance.php
+in a new browser window.<br>
+You will need to type the teacher's user name and password.<br>
+As a teacher you're able to use the web pages available via the menu.<br>
+<br>
+To login a principal, open /principals/absent_search.php in
+a new browser window.<br>
+You will need to type the principal's user name and password.<br>
+As a principal you're able to use the web pages available via the menu.<br>
+<br>
+Congratulations! You have now completed the gnuschool setup.<br>
 
 <div class="node">
 <p><hr>
 <a name="Copying-This-Manual"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Index">Index</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Invoking-gnuschool">Invoking gnuschool</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Setup-gnuschool">Setup gnuschool</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
@@ -357,7 +358,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Copying-This-Manual">Copying This Manu
 
 <h3 class="appendixsec">A.1 GNU Free Documentation License</h3>
 
-<p><a name="index-FDL_002c-GNU-Free-Documentation-License-11"></a><div align="center">Version 1.2, November 2002</div>
+<p><a name="index-FDL_002c-GNU-Free-Documentation-License-9"></a><div align="center">Version 1.2, November 2002</div>
 
 <pre class="display">     Copyright &copy; 2000,2001,2002 Free Software Foundation, Inc.
      51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA
@@ -777,9 +778,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <h2 class="unnumbered">Index</h2>
 
 <ul class="index-cp" compact>
-<li><a href="#index-FDL_002c-GNU-Free-Documentation-License-11">FDL, GNU Free Documentation License</a>: <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></li>
-<li><a href="#index-gnuschool-9"><code>gnuschool</code></a>: <a href="#Invoking-gnuschool">Invoking gnuschool</a></li>
-<li><a href="#index-invoking-_0040command_007bgnuschool_007d-10">invoking <samp><span class="command">gnuschool</span></samp></a>: <a href="#Invoking-gnuschool">Invoking gnuschool</a></li>
+<li><a href="#index-FDL_002c-GNU-Free-Documentation-License-9">FDL, GNU Free Documentation License</a>: <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></li>
 <li><a href="#index-minimum-requirement-1"><code>minimum requirement</code></a>: <a href="#Minimum-requirement">Minimum requirement</a></li>
 <li><a href="#index-php-installation-5"><code>php installation</code></a>: <a href="#PHP-installation">PHP installation</a></li>
 <li><a href="#index-prepare-mysql-3"><code>prepare mysql</code></a>: <a href="#Prepare-mysql">Prepare mysql</a></li>
