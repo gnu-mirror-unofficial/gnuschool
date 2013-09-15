@@ -153,29 +153,22 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <h2 class="chapter">4 Setup gnuschool</h2>
 
 <p><a name="index-setup-gnuschool-7"></a><a name="index-setup-gnuschool-8"></a>
-This release is named gnuschool-2.2<br>
-gnuschool will unpack into a directory named gnuschool-2.2<br>
-<br>
+Unpack gnuschool-2.2 where a web server has access to directories and files.<br>
 To unpack gnuschool-2.2 you could use the following commands:
 <pre class="example">          gunzip gnuschool-2.2.tar.gz
           tar -xvf gnuschool-2.2.tar
 </pre>
-<p><br>
-If you unpack in a path called
-<pre class="example">     /my/full/path/www/
-</pre>
-<p>after you unpack gnuschool, the new path becomes
-<pre class="example">     /my/full/path/www/gnuschool-2.2/with/other/directories/here
-</pre>
-<p><br>
+<p>Unpacking creates directory gnuschool-2.2 (and subdirectories).<br>
 You will need to configure your web server.<br>
 If you use Apache, edit the httpd.conf file as follows:
-<pre class="example">     DocumentRoot "/my/full/path/www/"
-     &lt;Directory "/my/full/path/www/"&gt;
+<pre class="example">     DocumentRoot "/my/full/path/gnuschool-2.2/src/code/"
+     &lt;Directory "/my/full/path/gnuschool-2.2/src/code/"&gt;
 </pre>
-<p>The DocumentRoot is not "/my/full/path/www/gnuschool-2.2/"<br>
+<p><br>
+Now open file /my/full/path/gnuschool-2.2/src/up/up.php and make variable $to_code=&rdquo;<br>
 <br>
-To complete the setup you need to access your newly installed gnuschool-2.2 website.<br>
+
+<p>To complete the setup you need to access gnuschool-2.2 using a web browser.<br>
 At the main menu, click on "gnuschool Setup", then click on "Setup Steps"<br>
 Once the steps are completed you will be done with your gnuschool setup.<br>
 
