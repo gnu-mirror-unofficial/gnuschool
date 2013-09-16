@@ -44,8 +44,8 @@ Copyright (C) 2006 Free Software Foundation, Inc.
 <li><a name="toc_Top" href="#Top">gnuschool</a>
 <li><a name="toc_What-is-gnuschool" href="#What-is-gnuschool">1 What is gnuschool</a>
 <li><a name="toc_Minimum-requirement" href="#Minimum-requirement">2 Minimum requirement</a>
-<li><a name="toc_PHP-tweak" href="#PHP-tweak">3 PHP tweak</a>
-<li><a name="toc_Setup-gnuschool" href="#Setup-gnuschool">4 Setup gnuschool</a>
+<li><a name="toc_Setup-gnuschool" href="#Setup-gnuschool">3 Setup gnuschool</a>
+<li><a name="toc_PHP-tweak" href="#PHP-tweak">4 PHP tweak</a>
 <li><a name="toc_Copying-this-manual" href="#Copying-this-manual">Appendix A Copying this manual</a>
 <ul>
 <li><a href="#GNU-Free-Documentation-License">A.1 GNU Free Documentation License</a>
@@ -90,8 +90,8 @@ Software Foundation raise funds for GNU development.&rdquo;
 <ul class="menu">
 <li><a accesskey="1" href="#What-is-gnuschool">What is gnuschool</a>
 <li><a accesskey="2" href="#Minimum-requirement">Minimum requirement</a>
-<li><a accesskey="3" href="#PHP-tweak">PHP tweak</a>
-<li><a accesskey="4" href="#Setup-gnuschool">Setup gnuschool</a>
+<li><a accesskey="3" href="#Setup-gnuschool">Setup gnuschool</a>
+<li><a accesskey="4" href="#PHP-tweak">PHP tweak</a>
 <li><a accesskey="5" href="#Copying-this-manual">Copying this manual</a>
 <li><a accesskey="6" href="#Index">Index</a>
 </ul>
@@ -116,7 +116,7 @@ gnuschool assists students, educators, and administrators with attendance, basic
 <div class="node">
 <p><hr>
 <a name="Minimum-requirement"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#PHP-tweak">PHP tweak</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#Setup-gnuschool">Setup gnuschool</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#What-is-gnuschool">What is gnuschool</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
@@ -129,30 +129,16 @@ A system with MySQL 5.0, PHP 5.1, and a web server such as Apache installed.<br>
 
 <div class="node">
 <p><hr>
-<a name="PHP-tweak"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Setup-gnuschool">Setup gnuschool</a>,
+<a name="Setup-gnuschool"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#PHP-tweak">PHP tweak</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Minimum-requirement">Minimum requirement</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
 
-<h2 class="chapter">3 PHP tweak</h2>
+<h2 class="chapter">3 Setup gnuschool</h2>
 
-<p><a name="index-php-tweak-5"></a><a name="index-php-tweak-6"></a>
-If your input files are dbase files, then enable dbase when installing PHP.<br>
-
-<div class="node">
-<p><hr>
-<a name="Setup-gnuschool"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Copying-this-manual">Copying this manual</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#PHP-tweak">PHP tweak</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
-
-<h2 class="chapter">4 Setup gnuschool</h2>
-
-<p><a name="index-setup-gnuschool-7"></a><a name="index-setup-gnuschool-8"></a>
+<p><a name="index-setup-gnuschool-5"></a><a name="index-setup-gnuschool-6"></a>
 Unpack gnuschool-2.2 where a web server has access to directories and files.<br>
 To unpack gnuschool-2.2 you could use the following commands:
 <pre class="example">          gunzip gnuschool-2.2.tar.gz
@@ -167,16 +153,30 @@ If you use Apache, edit the httpd.conf file as follows:
 <p><br>
 Now open file /my/full/path/gnuschool-2.2/src/up/up.php and make variable $to_code=&rdquo;<br>
 <br>
-
-<p>To complete the setup you need to access gnuschool-2.2 using a web browser.<br>
+To complete the setup you need to access gnuschool-2.2 using a web browser.<br>
 At the main menu, click on "gnuschool Setup", then click on "Setup Steps"<br>
 Once the steps are completed you will be done with your gnuschool setup.<br>
 
 <div class="node">
 <p><hr>
+<a name="PHP-tweak"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Copying-this-manual">Copying this manual</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Setup-gnuschool">Setup gnuschool</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">4 PHP tweak</h2>
+
+<p><a name="index-php-tweak-7"></a><a name="index-php-tweak-8"></a>
+The input files are in gnuschool-2.2/src/data_text_files/<br>
+If your input files are dbase files, then enable dbase when installing PHP.<br>
+
+<div class="node">
+<p><hr>
 <a name="Copying-this-manual"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Index">Index</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Setup-gnuschool">Setup gnuschool</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#PHP-tweak">PHP tweak</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
@@ -618,8 +618,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <ul class="index-cp" compact>
 <li><a href="#index-FDL_002c-GNU-Free-Documentation-License-9">FDL, GNU Free Documentation License</a>: <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></li>
 <li><a href="#index-minimum-requirement-4">minimum requirement</a>: <a href="#Minimum-requirement">Minimum requirement</a></li>
-<li><a href="#index-php-tweak-6">php tweak</a>: <a href="#PHP-tweak">PHP tweak</a></li>
-<li><a href="#index-setup-gnuschool-8">setup gnuschool</a>: <a href="#Setup-gnuschool">Setup gnuschool</a></li>
+<li><a href="#index-php-tweak-8">php tweak</a>: <a href="#PHP-tweak">PHP tweak</a></li>
+<li><a href="#index-setup-gnuschool-6">setup gnuschool</a>: <a href="#Setup-gnuschool">Setup gnuschool</a></li>
 <li><a href="#index-what-is-gnuschool-2">what is gnuschool</a>: <a href="#What-is-gnuschool">What is gnuschool</a></li>
 </ul></body></html>
 
